@@ -44,14 +44,13 @@ if [ "$out" == "" ]; then
     	echo -e "\n $c Please enter $r ONLY $c the first $r[3]$c oxtets: $g Example: $c 192.168.1 $x"
 	read -r out
     	# make sure user supplied the correct range for sweeper = to minumim 1.1.1 - maxium 255.255.255
-		[[ "$out" =~ ^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])$ ]] && echo -e "\n $p Running ip-sweeper on the ip range: $c $out $x" || { echo -e "\n $w $r Incorrect format or range $w $r"; exit 1; }
+	[[ "$out" =~ ^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])$ ]] && echo -e "\n $p Running ip-sweeper on the ip range: $c $out $x" || { echo -e "\n $w $r Incorrect format or range $w $r"; exit 1; }
 	for ip in `seq 1  254`; do
     	ping -c 1 -W 0.30 "$out.$ip" | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" >ipsweep.$out.txt
     	done
     	echo -e "\n $c File saved in: $r $PWD/ipsweep.$out.txt $x"
 # if user supplied ip range whrn calling script make sure they supplid the correct range for sweeper 
-else
-	[[ "$out" =~ ^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])$ ]] && echo -e "\n $p Running ip-sweeper on the ip range: $c $out $x" || { echo -e "\n $w $r Incorrect format or range $w $r"; exit 1; }
+else	[[ "$out" =~ ^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])$ ]] && echo -e "\n $p Running ip-sweeper on the ip range: $c $out $x" || { echo -e "\n $w $r Incorrect format or range $w $r"; exit 1; }
     	for ip in `seq 1  254`; do
     	ping -c 1 -W 0.30 "$out.$ip" | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"  >ipsweep.$out.txt
     	done
