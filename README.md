@@ -37,7 +37,7 @@ Added ability to run a nmap port discovery scan on all ports against found ip ad
 Clone the project
 
 ```bash
-  git clone https://github.com/adamhamilton/ipsweep.git
+  https://github.com/adamhamilton44/ip-sweeper.git
 ```
 
 Go to the project directory
