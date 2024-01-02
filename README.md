@@ -1,7 +1,7 @@
 ![![LOGO][def2]][def3]
 # ping sweeper with Network Mapper support
 
-Ping sweep a 1-255 ip range and run found ip's through nmap
+Ping sweep a 1-255 ip range and run nmap against the found ip's.
 
 
 ## Author
@@ -17,10 +17,10 @@ See Above for ways to get ahold of me.
 
 ## Features
 
-- Program will ask for first 3 octects if not provided when running script.
-- After ipsweep is done it will save to current folder under ipsweep.ipaddress.txt.
-- Next it will ask you if you would like to run a full nmap ping scan against found ip addresses.
-- If yes then it will save all information in the same file it read the ip's from.  
+- Program will ask for first 3 octects if not provided when running script. example: ipsweep 192.168.10
+- After ipsweep is done it will save to current folder under ipsweep.192.168.10.txt.
+- Next it will ask you if you would like to run a full nmap port scan against found ip addresses.
+- If yes then it will append all information in the same file it read the ip's from.  
 
 ## Feedback
 
