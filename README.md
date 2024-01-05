@@ -2,7 +2,7 @@
 
 # ping sweeper with Network Mapper support
 
-Ping sweep a 1-255 ip range and run found ip's through nmap
+Ping sweep a 1-255 ip range and run nmap against the found ip's.
 
 
 ## Author
@@ -18,10 +18,10 @@ See Above for ways to get ahold of me.
 
 ## Features
 
-- Program will ask for first 3 octects if not provided when running script.
-- After ipsweep is done it will save to current folder under ipsweep.ipaddress.txt.
-- Next it will ask you if you would like to run a full nmap ping scan against found ip addresses.
-- If yes then it will save all information in the same file it read the ip's from.  
+- Program will ask for first 3 octects if not provided when running script. example: ipsweep 192.168.10
+- After ipsweep is done it will save to current folder under ipsweep.192.168.10.txt.
+- Next it will ask you if you would like to run a full nmap port scan against found ip addresses.
+- If yes then it will append all information in the same file it read the ip's from.  
 
 ## Feedback
 
@@ -67,15 +67,15 @@ ipsweep
 ## 🚀 About Me
 I'm a self taught noob this is my first project i have opened to Github.
 
-## Source Code
+# Source Code
 ![ip-sweep script](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/69c3a77c-501b-4696-99f2-9426383235fe)
+>>>>>>> 8cf96ab9cca59b7dd01152cb81f9556b060065a7
 
 ## User Experience
 ![user-experience-full](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/fd694234-afb2-45fb-8bf0-311d70c6acfd)
 
 ## User Error
 ![user-error](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/fa2c4c92-dd8e-4bcb-945f-9cf522fa1274)
-
 
 ## Acknowledgements
 A Special thanks to all the Bash Scripting Language Influncers that have helped me along the way.
@@ -101,5 +101,3 @@ A Special thanks to all the Bash Scripting Language Influncers that have helped 
 # Fund My Projects
 
 Bitcoin: 3ENrACvnNY7AYG7HUvcdwJgZjnpoaQ9Lbt
-
-
