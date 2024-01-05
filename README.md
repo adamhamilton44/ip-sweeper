@@ -69,7 +69,6 @@ I'm a self taught noob this is my first project i have opened to Github.
 
 # Source Code
 ![ip-sweep script](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/69c3a77c-501b-4696-99f2-9426383235fe)
->>>>>>> 8cf96ab9cca59b7dd01152cb81f9556b060065a7
 
 ## User Experience
 ![user-experience-full](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/fd694234-afb2-45fb-8bf0-311d70c6acfd)
