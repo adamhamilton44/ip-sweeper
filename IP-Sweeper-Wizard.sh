@@ -78,7 +78,7 @@ check_for_root() {
 		clear
         fi
 }
-
+: '
 # boolein for parsing the xml file ONLY IF User allowed the download
 # But even if user is sudo/root and choose no then script will not run parse will stay false
 parse=false
@@ -114,9 +114,7 @@ substring_exists() {
         return 1
     fi
 }
-
-
-
+'
 
 # Array to store user choices
 user_choices=()
@@ -631,7 +629,7 @@ else
 	clear
 	exit
 fi
-
+: '
 if $parse; then
 	if $ipp; then
 		# Check if the nmap command contains all necessary options
@@ -655,4 +653,5 @@ if $parse; then
                         python3 ./Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
                 fi
 fi
+'
 exit 0
