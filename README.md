@@ -1,44 +1,47 @@
-![logo](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/78555d45-8d66-49e9-b279-477b0acf493b)
+[Logo](IP-Sweeper-Wizard.png)
 
-# ping sweeper with Network Mapper support
+A Ping Sweeping Wizard with Full NMAP Support
 
-Ping sweep a 1-255 ip range and run nmap against the found ip's.
+Ping sweep a 1-255 IP range, retrieve your results, proceed to execute Nmap commands with the discovered IPs.
+Author
 
-
-## Author
 Adam Hamilton
-- [Github](https://www.github.com/adamhamilton44)
 
-- [Email](blacklisthacker@protonmail.com)
-## Contributing
+    GitHub
+    Email
+
+Contributing
 
 Contributions are always welcome!
-
-See Above for ways to get ahold of me.
+Please refer to the contact information above to get in touch.
 
 ## Features
 
-- Program will ask for first 3 octects if not provided when running script. example: ipsweep 192.168.10
-- After ipsweep is done it will save to current folder under ipsweep.192.168.10.txt.
-- Next it will ask you if you would like to run a full nmap port scan against found ip addresses.
-- If yes then it will append all information in the same file it read the ip's from.  
+    Choose between running a ping sweep or proceeding directly to Nmap.
+    IP Sweeper Wizard prompts for the first 3 octets (e.g., 192.168.10.), then performs a ping scan from 192.168.10.1 to 192.168.10.255.
+    Upon completion, a file is saved as ipsweep.<IP range>.txt in the user's current working directory (e.g., ipsweep.192.168.10.txt).
+    Option to run an Nmap scan against the discovered IPs.
+    Multiple Nmap options available:
+        Timing options (-T0 to -T6)
+        host scanning options (-Psauye)
+        Script scanning options (-Sstunxfwncv)
+        Operating system enumeration (-O)
+        IP or Hostname options (192.168.20.5),(www.website.com)
+        Decoy scanning options (-D RND:5,10,15,20)
+        Top ports (--top-ports 5 to 65535)
+        Output file options (-oNXGA)
+        Show final nmap command before running
+    Note: NMAP's --script (scanning options) when used with this script assume you have a good understanding of how and when to use.
 
-## Feedback
+Feedback
 
-If you have any feedback, please reach out to me at [Email](blacklisthacker@protonmail.com)
+Feel free to reach out with any ideas or feedback at blacklisthacker@protonmail.com.
+Run Locally
 
-## Optimizations
-
-Added the ability to ask user for ip address if not provided.
-
-Added ability to run a nmap port discovery scan on all ports against found ip addresses
-
-## Run Locally
-
-Clone the project
+ Clone the project
 
 ```bash
-  https://github.com/adamhamilton44/ip-sweeper.git
+  git clone https://github.com/adamhamilton44/ip-sweeper.git
 ```
 
 Go to the project directory
@@ -65,16 +68,41 @@ Run anywhere
 ipsweep
 
 ## 🚀 About Me
-I'm a self taught noob this is my first project i have opened to Github.
+I'm a self taught noob this was my first project i opened to Github.
 
 # Source Code
-![ip-sweep script](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/69c3a77c-501b-4696-99f2-9426383235fe)
+![]()
 
 ## User Experience
-![user-experience-full](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/fd694234-afb2-45fb-8bf0-311d70c6acfd)
+- ASCII ART
+[here][def10]
+- IP-Sweeper-Wizard found ip's
+[here][def11]
+- Ping scan or nmap scan options
+[here][def2]
+- nmap ip address or URL
+[here][def3]
+- URL options
+[here][def4]
+- Port options
+[here][def5]
+- Decoy options
+[here][def12]
+- Timing options
+[here][def6]
+- Outfile options
+[here][def7]
+- Final command
+[here][def8]
 
 ## User Error
-![user-error](https://github.com/adamhamilton44/ip-sweeper/assets/58394550/fa2c4c92-dd8e-4bcb-945f-9cf522fa1274)
+- User Error Message
+[here][def9]
+
+## Sudo Options
+- Sudo option
+[here][def]
+
 
 ## Acknowledgements
 A Special thanks to all the Bash Scripting Language Influncers that have helped me along the way.
@@ -88,15 +116,29 @@ A Special thanks to all the Bash Scripting Language Influncers that have helped 
 
 ## Github Profile Sections
 
-👩‍💻 I'm currently working on more bash scripts
+👩‍💻 Currently working on advancing into more complex Bash scripts.
 
-💬 Ask me about anything
+💬  Feel free to ask me about anything.
 
-📫 How to reach me Email: blacklisthacker@protonmail.com
+📫 Reach me via Email: blacklisthacker@protonmail.com
 
-⚡️ Fun fact I am actually a Professional dog trainer.
-   [My website](https://good-happy-puppy.com) 
+⚡️ Fun fact: I am actually a professional dog trainer. [Visit my website](https://good-happy-puppy.com)
 
 # Fund My Projects
 
 Bitcoin: 3ENrACvnNY7AYG7HUvcdwJgZjnpoaQ9Lbt
+
+
+[Logo]: IP-Sweeper-Wizard.png
+[def]: sudo.png
+[def2]: pingORnmap.png
+[def3]: hostype.png
+[def4]: full-website-options.png
+[def5]: ports-option.png
+[def6]: timing-options.png
+[def7]: outfile-options.png
+[def8]: outcommand.png
+[def9]: errors.png
+[def10]: asciiart.png
+[def11]: sweepername.png
+[def12]: decoy-options.png
