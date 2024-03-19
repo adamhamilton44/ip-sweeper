@@ -1,4 +1,4 @@
-[Logo](IP-Sweeper-Wizard.png)
+[logo](IP-Sweeper-Wizard.png)
 
 A Ping Sweeping Wizard with Full NMAP Support
 
@@ -31,7 +31,7 @@ Please refer to the contact information above to get in touch.
         Top ports (--top-ports 5 to 65535)
         Output file options (-oNXGA)
         Show final nmap command before running
-    Note: NMAP's --script (scanning options) when used with this script assume you have a good understanding of how and when to use.
+    Note: NMAP's --script (scanning options) when used with this script assume you have a good understanding of how to use.
 
 Feedback
 
@@ -58,50 +58,38 @@ Install Dependcies
   sudo apt install nmap -y
 ```
 
-Copy ipsweep.sh to $PATH
-
-```bash
-  sudo cp ipsweep.sh /usr/local/bin/ipsweep
-
-```
-Run anywhere
-ipsweep
-
 ## 🚀 About Me
 I'm a self taught noob this was my first project i opened to Github.
 
-# Source Code
-![]()
-
 ## User Experience
 - ASCII ART
-[here][def10]
+[art](asciiart.png)
 - IP-Sweeper-Wizard found ip's
-[here][def11]
+[foundips](sweepername.png)
 - Ping scan or nmap scan options
-[here][def2]
+[pingORnmap](pingORnmap.png)
 - nmap ip address or URL
-[here][def3]
+[hosttype](hostype.png)
 - URL options
-[here][def4]
+[full](full-website-options.png)
 - Port options
-[here][def5]
+[port](ports-option.png)
 - Decoy options
-[here][def12]
+[decoy](decoy-options.png)
 - Timing options
-[here][def6]
+[timing](timing-options.png)
 - Outfile options
-[here][def7]
+[out](outfile-options.png)
 - Final command
-[here][def8]
+[final](outcommand.png)
 
 ## User Error
 - User Error Message
-[here][def9]
+[error](errors.png)
 
 ## Sudo Options
 - Sudo option
-[here][def]
+[sudo](sudo.png)
 
 
 ## Acknowledgements
@@ -128,17 +116,3 @@ A Special thanks to all the Bash Scripting Language Influncers that have helped 
 
 Bitcoin: 3ENrACvnNY7AYG7HUvcdwJgZjnpoaQ9Lbt
 
-
-[Logo]: IP-Sweeper-Wizard.png
-[def]: sudo.png
-[def2]: pingORnmap.png
-[def3]: hostype.png
-[def4]: full-website-options.png
-[def5]: ports-option.png
-[def6]: timing-options.png
-[def7]: outfile-options.png
-[def8]: outcommand.png
-[def9]: errors.png
-[def10]: asciiart.png
-[def11]: sweepername.png
-[def12]: decoy-options.png
