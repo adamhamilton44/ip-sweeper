@@ -78,31 +78,6 @@ check_for_root() {
 		clear
         fi
 }
-: '
-# boolein for parsing the xml file ONLY IF User allowed the download
-# But even if user is sudo/root and choose no then script will not run parse will stay false
-parse=false
-
-# function to download the needed scripts and parser for github vulscan.nse - download script is located in Scripts/downloads.sh
-# this is ONLY available to a sudo/root user
-download_pip_lib_git_vuln() {
-	if [ "$EUID" -eq 0 ]; then
-		echo -e "$p You have the option if you would like to download a addon vulnability script for nmap from Gihub."
-		echo -e "$r https://github.com/vulnCom/vulners. "
-		echo -e "$g if you choose Y for yes i will check for$r python3-pip$g because we also need$r python-libnmap,$g this is for parsing xml files."
-		echo -e "$g I will also search for$r git$g this is for the$r git clone$g command to download$r https://github.com/vulnCom/vulners$g that will be placed in your Nmap scripts directory$r /usr/share/nmap/scripts/.$x "
-		echo -e "$p The script will check for and add any parts mentioned above if not downloaded already and will skip any you already have."
-		echo -e "$b Continue with download?$r Y|N $x"
-		read -r -p " ==> " answer
-
-		while_asking_question
-
-		if [[ "$answer" =~ [Yy] ]]; then
-			bash ./Scripts/download.sh
-			parse=true
-		fi
-	fi
-}
 
 # Function to check if a substring exists in a string
 substring_exists() {
@@ -114,7 +89,7 @@ substring_exists() {
         return 1
     fi
 }
-'
+
 
 # Array to store user choices
 user_choices=()
@@ -358,16 +333,23 @@ run_final_scan() {
 # Finally we are past the functions hope that was worth the hassle.
 show_ascii_art # our first function and used often to show ascii logo art
 
-echo -e "$p                       Welcome to the IP-Sweeper-Wizard$x"
+# check if user ran the installer.sh script for the extra functions
+if [[ -x /opt/IP-Sweep/installer.sh ]]; then
+        parse=true
+else
+        echo " !! You should run the installer.sh script for extra features"
+        parse=false
+fi
+
+echo -e "$p Welcome to the IP-Sweeper-Wizard$x"
 
 check_for_root # check for root give user options if not
 
-download_pip_lib_git_vuln # asking only sudo users if they want the downloaded scripts for extended usage
 
 show_ascii_art # I am proud of my ascii art you will see often
 echo -e "$p IP-Sweeper-Wizard or Nmap scan$x"
 echo " " # user options for using IP-Sweeper-Wizard or Nmap or to Exit
-echo -e "$c Please enter a number$x \n \n 1. $c Run $r IP-Sweeper $c ping scan on a (255) ip range $p Example ==>  $g 192-168.1.(1-255) $x \n \n 2. $c Run a$r nmap$c scan against a target host(s) $p Example ==> $g 192.168.1.1 $p or $g www.somewebsite.com  $x \n 3 $r Exit the script. $x"
+echo -e "$c Please enter a number$x \n \n 1. $c Run $r IP-Sweeper $c ping scan on a (255) ip range $p Example ==>  $g 192-168.1.(1-255) $x \n \n 2. $c Run a$r nmap$c scan against a target host(s) $p Example ==> $g 192.168.1.1 $p or $g www.somewebsite.com  $x \n \n 3 $r Exit the script. $x"
 echo " "
 read -r -p " ==> " option
 while [[ ! "$option" =~ [123] ]]; do # while loops all over the place to avoid user errors
@@ -482,7 +464,7 @@ show_ascii_art
 
 echo -e "$p Would you like to choose a timing option$x"
 echo " " # ALL timing options availabe slower scans = better results, faster scans = time saved with many ip's
-echo -e "$r -T0-T6$c options available -T4 is defult $r Y|N $x "
+echo -e "$r -T0-T6$c options available -T4 is default $r Y|N $x "
 echo " "
 read -r -p " ==> " answer
 
@@ -629,7 +611,7 @@ else
 	clear
 	exit
 fi
-: '
+
 if $parse; then
 	if $ipp; then
 		# Check if the nmap command contains all necessary options
@@ -653,5 +635,5 @@ if $parse; then
                         python3 ./Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
                 fi
 fi
-'
+
 exit 0

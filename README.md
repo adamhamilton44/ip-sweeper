@@ -54,17 +54,16 @@ Feel free to reach out with any ideas or feedback at blacklisthacker@protonmail.
   cd ipsweep
 ```
 
-## Install Dependcies
+## Run the Installer script 
 
 ```bash
-  sudo apt update
-  sudo apt install ping -y
-  sudo apt install nmap -y
+  chmod +x installer.sh
+  sudo bash ./installer.sh
 ```
 
 ## 🚀 About Me
 
-I'm a self taught noob this was my first project i opened to Github.
+I'm a self taught noob this was my first project i uploaded to Github.
 
 ## User Experience
 
@@ -108,11 +107,11 @@ I'm a self taught noob this was my first project i opened to Github.
 
 ![final](icons/outcommand.png)
 
-## User Error
+- User Error
 
 ![error](icons/errors.png)
 
-## Sudo Options
+- Sudo Options
 
 ![sudo](icons/sudo.png)
 
