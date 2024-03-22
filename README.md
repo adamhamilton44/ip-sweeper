@@ -8,8 +8,9 @@ Ping sweep a 1-255 IP range, retrieve your results, proceed to execute Nmap comm
 
 Adam Hamilton
 
-    GitHub
-    Email
+    [GitHub](https://github.com/adamhamilton44)
+ 
+    [Email](blacklisthacker@protonmail.com)
 
 # Contributing
 
