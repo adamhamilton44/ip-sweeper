@@ -79,18 +79,18 @@ if [[ "$down" == yes ]]; then
 	then # I guess it is safe to assume user is Red Hat
 		sudo dnf update && sudo dnf install -y git python3 python3-pip
 	fi
+
+	if ! [ -f /usr/share/nmap/scripts/vulscan/vulscan.nse ]; then
+        	cd /usr/share/nmap/scripts/
+        	git clone https://github.com/vulnCom/vulners.git
+		nmap --script-updatedb
+	fi
+
+	if ! [ -f /usr/lib/python3/dist-packages/libnmap/parser.py ]; then
+        	pip3 install python-libnmap
+	fi
 else
         echo "No extra downloads will be installed"
-fi
-
-if ! [ -f /usr/share/nmap/scripts/vulscan/vulscan.nse ]; then
-        cd /usr/share/nmap/scripts/
-        git clone https://github.com/vulnCom/vulners.git
-	nmap --script-updatedb
-fi
-
-if ! [ -f /usr/lib/python3/dist-packages/libnmap/parser.py ]; then
-        pip3 install python-libnmap
 fi
 
 cd $home
