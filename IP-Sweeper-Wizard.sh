@@ -334,11 +334,11 @@ run_final_scan() {
 show_ascii_art # our first function and used often to show ascii logo art
 
 # check if user ran the installer.sh script for the extra functions
-if [[ -x /opt/IP-Sweep/installer.sh ]]; then
+if [[ -x /opt/ip-sweeper/installer.sh ]]; then
         parse=true
 else
         echo " !! You should run the installer.sh script for extra features"
-        parse=false
+
 fi
 
 echo -e "$p Welcome to the IP-Sweeper-Wizard$x"
@@ -526,7 +526,7 @@ clear
 if [[ "$nse" =~ [Yy] ]]; then
 		echo -e "$c Please choose all options that apply followed by a comma. $p Example ==> $g 1,2,3,4,5 \n $c \n \n Keep in mind these script could take a very long time to run. $x"
 		nse_question=" " # this is also where multi options are available for user because it takes a LONG time to run 600 scripts 1 by 1
-		nse_options=($(cat Scripts/nmap-scripts.txt|sort)) # This line is the pride of my work. HOW to give user ALL nse scripts as a option.
+		nse_options=($(cat /opt/ip-sweeper/Scripts/nmap-scripts.txt|sort)) # This line is the pride of my work. HOW to give user ALL nse scripts as a option.
 		ask_multiple_choices_question "$nse_question" "${nse_options[@]}"
 		choice=$(get_input)
 		IFS=',' read -ra choice_array <<< "$choice"
@@ -616,24 +616,33 @@ if $parse; then
 	if $ipp; then
 		# Check if the nmap command contains all necessary options
 		nmap_command="nmap -A --script -oX .xml"
-		if substring_exists "$final_command_ping" "$nmap_command"; then
+		if substring_exists "$final_ping_command" "$nmap_command"; then
     			# Prompt the user whether they want to run the Python script
     			read -p "Do you want to parse the .xml Nmap output? (Y/N): " answer
 			while_asking_question
     			if [[ "$answer" =~ [Yy] ]]; then
         		# Run the Python script
-        		python3 ./Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
-    		fi
+        		python3 /opt/ip-sweeper/Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
+    			fi
+		else
+			exit 0
+		fi
 	else
 		nmap_command="nmap -A --script -oX .xml "
-                if substring_exists "$final_command_nmap" "$nmap_command"; then
+                if substring_exists "$final_nmap_command" "$nmap_command"; then
                         # Prompt the user whether they want to run the Python script
                         read -p "Do you want to parse the .xml Nmap output? (Y|N): " answer
 			while_asking_question
                         if [[ "$answer" =~ [Yy] ]]; then
                         # Run the Python script
-                        python3 ./Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
-                fi
+                        python3 /opt/ip-sweeper/Scripts/parser.py "nmap-$ezy.xml" > parsed-nmap-$ezy.xml
+                	fi
+		else
+			exit 0
+		fi
+	fi
+else
+	exit 0
 fi
 
 exit 0
