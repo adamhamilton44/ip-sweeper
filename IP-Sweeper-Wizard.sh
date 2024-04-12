@@ -96,7 +96,7 @@ user_choices=()
 
 # boolean for final Nmap command to output to user based on if IP-Sweeper-Wizard is used as a -iL infile for Nmap to read. 
 ipp=false
-
+parse=false
 # Function to get user input
 function get_input() {
 	read -r  choice
@@ -334,10 +334,12 @@ run_final_scan() {
 show_ascii_art # our first function and used often to show ascii logo art
 
 # check if user ran the installer.sh script for the extra functions
-if [[ -x /opt/ip-sweeper/installer.sh ]]; then
+if [[ -x /opt/ip-sweeper/installer.sh ]] && [[ -d /usr/share/nmap/scripts/vulscan ]]; then
         parse=true
 else
-        echo " !! You should run the installer.sh script for extra features"
+        echo -e "$r !! You should run the installer.sh script for extra features $x"
+	echo -e "$p type this to run the installer.sh script: $x"
+	echo "$g chmod +x installer.sh && sudo bash installer.sh $x"
 
 fi
 

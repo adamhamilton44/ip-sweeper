@@ -40,8 +40,10 @@ install_dependencies() {
             ;;
     esac
 
-    if ! [ -f /usr/share/nmap/scripts/vulscan/vulscan.nse ]; then
-        sudo git clone https://github.com/vulnCom/vulners.git /usr/share/nmap/scripts/vulscan
+    if ! [ -d /usr/share/nmap/scripts/vulscan ]; then
+	cd /usr/share/nmap/scripts && mkdir vulscan || return
+        sudo git clone https://github.com/scipag/vulscan
+	sudo ln -s pwd /scipag_vulscan /usr/share/Nmap/scripts/vulscan #-sV --script=vulscan/vulscan.nse
         sudo nmap --script-updatedb
     fi
 
